@@ -1,0 +1,28 @@
+(macro! (fun! (F XS...) BODY) (define F (lambda (XS...) BODY)))
+(macro! (let! X E1 E2) ((lambda (X) E2) E1))
+(macro! (wait! X) (lambda () X))
+(macro! (if! C THEN ELSE) ((if C (wait! THEN) (wait! ELSE))))
+
+(macro! (self-apply! X) (X X))
+(macro! (fix! XS...)
+    (lambda (@F)
+        (self-apply! (lambda (@X) (lambda (XS...) (@F (@X @X) XS...))))))
+(macro! (reclambda! (REC XS...) BODY) ((fix! XS...) (lambda (REC XS...) BODY)))
+(macro! (recfun! (F REC XS...) BODY) (define F (reclambda! (REC XS...) BODY)))
+
+(fun! (inc k) (+ k 1))
+(fun! (dec k) (- k 1))
+(fun! (square k) (* k k))
+(fun! (sqdiff k l) (square (- k l)))
+(fun! (not k) (- 1 k))
+(fun! (or k l) (* k l))
+(fun! (norm k) (not (/ 1 (inc k))))
+(fun! (= k l) (norm (sqdiff k l)))
+
+(recfun! (print-Q rec n)
+    (let! v (Q n)
+    (if! (= v 0)
+        n
+        (rec (print v (inc n))))))
+
+(define main (print-Q 0))
