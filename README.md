@@ -6,7 +6,7 @@ Some space tourists from Tau Ceti have arrived on Earth and are asking for your 
 binary of their landing software. They've still got the source code, but they're not programmers and have no idea how to
 get it running. What's worse, their spaceship computer uses a strange tree-based bytecode, and they forgot their
 compiler at home. At least they brought all the documentation. They even have an interpreter for the bytecode, though
-it's missing the instruction that communicates with the ship memory banks.
+it's got a dummy implementation of the instruction that communicates with the ship memory banks.
 
 Help them by translating their program into a program that their ship will understand!  Since landing a spaceship is a time-sensitive activity, the goal is for the program you generate to run in as few steps as possible.
 
