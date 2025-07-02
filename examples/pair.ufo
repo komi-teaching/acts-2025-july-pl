@@ -1,0 +1,4 @@
+(define pair (lambda (a b) (lambda (f) (f a b))))
+(define fst (lambda (p) (p (lambda (x y) x))))
+(define snd (lambda (p) (p (lambda (x y) y))))
+(define main (fst (pair 42 0)))

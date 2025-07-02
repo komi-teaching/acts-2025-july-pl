@@ -1,0 +1,2 @@
+(define four (+ 2 2))
+(define main (- four 3))

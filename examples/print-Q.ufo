@@ -1,0 +1,16 @@
+(define inc (lambda (k) (+ k 1)))
+(define dec (lambda (k) (- k 1)))
+(define square (lambda (k) (* k k)))
+(define sqdiff (lambda (k l) (square (- k l))))
+(define not (lambda (k) (- 1 k)))
+(define norm (lambda (k) (not (/ 1 (inc k)))))
+(define = (lambda (k l) (norm (sqdiff k l))))
+(
+    define
+    print-Q
+    (
+        (lambda (@F) ((lambda (@X) (lambda (n) (@F (@X @X) n))) (lambda (@X) (lambda (n) (@F (@X @X) n)))))
+        (lambda (rec n) ((lambda (v) ((if (= v 0) (lambda () n) (lambda () (rec (print v (inc n))))))) (Q n)))
+    )
+)
+(define main (print-Q 0))

@@ -1,7 +1,0 @@
-(macro! (fun! (F XS...) BODY) (define F (lambda (XS...) BODY)))
-
-(fun! (pair a b) (lambda (f) (f a b)))
-(fun! (fst p) (p (lambda (x y) x)))
-(fun! (snd p) (p (lambda (x y) y)))
-
-(define main (fst (pair 42 0)))

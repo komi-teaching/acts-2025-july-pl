@@ -1,4 +1,0 @@
-(macro! (print-string! z x xs...) (print-string! (print x z) xs...))
-(macro! (print-string! z) z)
-
-(define main (print-string! 0 72 101 108 108 111 32 119 111 114 108 100 33))

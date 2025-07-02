@@ -1,0 +1,7 @@
+(define inc (lambda (k) (+ k 1)))
+(define square (lambda (k) (* k k)))
+(define sqdiff (lambda (k l) (square (- k l))))
+(define not (lambda (k) (- 1 k)))
+(define norm (lambda (k) (not (/ 1 (inc k)))))
+(define = (lambda (k l) (norm (sqdiff k l))))
+(define main (= (+ 2 2) 5))

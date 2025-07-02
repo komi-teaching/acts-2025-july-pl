@@ -1,0 +1,1 @@
+(define main (print 33 (print 100 (print 108 (print 114 (print 111 (print 119 (print 32 (print 111 (print 108 (print 108 (print 101 (print 72 0)))))))))))))
